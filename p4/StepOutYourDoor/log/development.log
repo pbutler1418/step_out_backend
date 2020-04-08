@@ -379,3 +379,36 @@ Processing by ExperiencesController#index as HTML
 Completed 200 OK in 14ms (Views: 8.8ms | ActiveRecord: 3.8ms | Allocations: 5138)
 
 
+Started POST "/experiences/" for ::1 at 2020-04-08 14:12:53 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"user"=>{"name"=>"Declan", "email"=>"Declan@email.com", "password"=>"[FILTERED]"}, "experience"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Declan"], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Declan@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:20:in `create'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Declan"], ["email", "Declan@email.com"], ["password_digest", "$2a$12$9pkYut8Wcm54eCWGyhrvI.qGyzBPqj.IaKL0vQaZIPzg/1xiTIJ2K"], ["created_at", "2020-04-08 18:12:54.082699"], ["updated_at", "2020-04-08 18:12:54.082699"]]
+  ↳ app/controllers/experiences_controller.rb:20:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiences_controller.rb:20:in `create'
+Completed 201 Created in 294ms (Views: 0.7ms | ActiveRecord: 3.1ms | Allocations: 10112)
+
+
+Started POST "/auth/login" for ::1 at 2020-04-08 14:14:13 -0400
+Processing by AuthenticationController#login as */*
+  Parameters: {"auth"=>{"name"=>"Declan", "email"=>"Declan@email.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"name"=>"Declan", "email"=>"Declan@email.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :name[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Declan@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+[31mUnpermitted parameter: :name[0m
+Completed 200 OK in 275ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1319)
+
+
+Started GET "/auth/verify" for ::1 at 2020-04-08 14:26:55 -0400
+Processing by AuthenticationController#verify as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 1010)
+
+
