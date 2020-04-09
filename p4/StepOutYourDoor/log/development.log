@@ -1054,3 +1054,481 @@ Processing by ExperiencesController#create as */*
 Completed 422 Unprocessable Entity in 50ms (Views: 0.4ms | ActiveRecord: 9.4ms | Allocations: 18441)
 
 
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 12:03:21 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 110ms (Views: 0.3ms | ActiveRecord: 24.7ms | Allocations: 23149)
+
+
+Started GET "/871d02f53dad1f62f01e.hot-update.json" for ::1 at 2020-04-09 12:09:23 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/871d02f53dad1f62f01e.hot-update.json"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/teleporter" for ::1 at 2020-04-09 12:09:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/teleporter"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-04-09 12:16:05 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/Pierce/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/Pierce/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 11.3ms | Allocations: 190)
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 892)
+
+
+Started GET "/" for ::1 at 2020-04-09 12:49:48 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/Pierce/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/Pierce/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.8ms | Allocations: 185)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 749)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 13:09:36 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 31ms (Views: 0.4ms | ActiveRecord: 2.4ms | Allocations: 6304)
+
+
+Started GET "/" for ::1 at 2020-04-09 13:37:37 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/Pierce/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/Pierce/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 8)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 266)
+
+
+Started GET "/experiences/" for ::1 at 2020-04-09 13:37:42 -0400
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (13.1ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 19ms (Views: 5.0ms | ActiveRecord: 13.1ms | Allocations: 1454)
+
+
+Started GET "/experiences" for ::1 at 2020-04-09 14:03:00 -0400
+Started GET "/experiences" for ::1 at 2020-04-09 14:03:00 -0400
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (3.9ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+Processing by ExperiencesController#index as HTML
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 6.3ms | ActiveRecord: 3.9ms | Allocations: 2089)
+
+
+  [1m[36mExperience Load (3.6ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 3.7ms | ActiveRecord: 3.6ms | Allocations: 2284)
+
+
+Started GET "/experiences" for ::1 at 2020-04-09 14:03:07 -0400
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (1.0ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+Started GET "/experiences" for ::1 at 2020-04-09 14:03:07 -0400
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 1.0ms | Allocations: 1630)
+
+
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (0.9ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.9ms | Allocations: 1339)
+
+
+Started GET "/experiences" for ::1 at 2020-04-09 14:03:11 -0400
+Started GET "/experiences" for ::1 at 2020-04-09 14:03:11 -0400
+Processing by ExperiencesController#index as HTML
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (8.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 3.5ms | ActiveRecord: 8.3ms | Allocations: 1551)
+
+
+  [1m[36mExperience Load (9.8ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 15ms (Views: 5.2ms | ActiveRecord: 9.8ms | Allocations: 2790)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:13:16 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 33ms (Views: 0.8ms | ActiveRecord: 5.7ms | Allocations: 6241)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:14:04 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+Completed 500 Internal Server Error in 115ms (ActiveRecord: 50.8ms | Allocations: 15135)
+
+
+  
+NoMethodError (undefined method `email' for #<User::ActiveRecord_Associations_CollectionProxy:0x00007f9c464012c8>):
+  
+app/controllers/experiences_controller.rb:23:in `create'
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:14:22 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 97ms (Views: 0.4ms | ActiveRecord: 18.7ms | Allocations: 18213)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:16:12 -0400
+  
+SyntaxError (/Users/Pierce/SEI/Mandalorians/Unit_4/Week_2/Step-Out-Your-Door/p4/StepOutYourDoor/app/controllers/experiences_controller.rb:23: syntax error, unexpected tIVAR
+    puts @experience.@user.name, "HEY AGAIN"
+                     ^~~~~
+/Users/Pierce/SEI/Mandalorians/Unit_4/Week_2/Step-Out-Your-Door/p4/StepOutYourDoor/app/controllers/experiences_controller.rb:23: syntax error, unexpected '\n', expecting '.' or &. or :: or '['):
+  
+app/controllers/experiences_controller.rb:23: syntax error, unexpected tIVAR
+app/controllers/experiences_controller.rb:23: syntax error, unexpected '\n', expecting '.' or &. or :: or '['
+app/controllers/experiences_controller.rb:23: syntax error, unexpected tIVAR
+app/controllers/experiences_controller.rb:23: syntax error, unexpected '\n', expecting '.' or &. or :: or '['
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:16:42 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 73ms (Views: 0.3ms | ActiveRecord: 19.5ms | Allocations: 18241)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:21:03 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 29.6ms | Allocations: 15009)
+
+
+  
+NoMethodError (undefined method `save' for #<User::ActiveRecord_Associations_CollectionProxy:0x00007f9c4845ebd8>):
+  
+app/controllers/experiences_controller.rb:24:in `create'
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:24:26 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 88ms (Views: 0.3ms | ActiveRecord: 20.0ms | Allocations: 18246)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:25:09 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 89ms (Views: 0.6ms | ActiveRecord: 21.8ms | Allocations: 18305)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:25:57 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 104ms (Views: 0.4ms | ActiveRecord: 17.2ms | Allocations: 18247)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:28:37 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 75ms (Views: 0.5ms | ActiveRecord: 16.6ms | Allocations: 18201)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:29:20 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (5.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (8.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 93ms (Views: 0.3ms | ActiveRecord: 32.4ms | Allocations: 18242)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:29:40 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 64ms (Views: 0.2ms | ActiveRecord: 19.3ms | Allocations: 18197)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:30:59 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 99ms (Views: 0.2ms | ActiveRecord: 25.8ms | Allocations: 18235)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:32:39 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+Completed 201 Created in 52ms (Views: 0.5ms | ActiveRecord: 12.2ms | Allocations: 13226)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "experiences_users" ON "experiences"."id" = "experiences_users"."experience_id" WHERE "experiences_users"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:35:15 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:25:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:25:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:25:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:25:in `create'
+Completed 422 Unprocessable Entity in 100ms (Views: 0.6ms | ActiveRecord: 19.6ms | Allocations: 22953)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:35:18 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:25:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:25:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:25:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:25:in `create'
+Completed 422 Unprocessable Entity in 28ms (Views: 0.3ms | ActiveRecord: 3.4ms | Allocations: 10773)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:40:08 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:14:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:16:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:16:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:16:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:16:in `create'
+Completed 422 Unprocessable Entity in 60ms (ActiveRecord: 16.3ms | Allocations: 18337)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Users is invalid):
+  
+app/controllers/experiences_controller.rb:16:in `create'
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:43:44 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:14:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ (byebug):1:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ (byebug):1:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ (byebug):1:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ (byebug):1:in `create'
+  [1m[36mExperience Load (0.6ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "experiences_users" ON "experiences"."id" = "experiences_users"."experience_id" WHERE "experiences_users"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/experiences_controller.rb:17:in `create'
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:17:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:17:in `create'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:17:in `create'
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:17:in `create'
+Completed 422 Unprocessable Entity in 478934ms (ActiveRecord: 26.1ms | Allocations: 96268)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Users is invalid):
+  
+app/controllers/experiences_controller.rb:17:in `create'
+Started POST "/users/1/experiences" for ::1 at 2020-04-09 14:51:57 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:14:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:15:in `create'
+  [1m[36mExperience Create (29.7ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Empire State Building"], ["location", "New York City"], ["description", "Went sightseeing."], ["created_at", "2020-04-09 18:51:58.048046"], ["updated_at", "2020-04-09 18:51:58.048046"]]
+  ↳ app/controllers/experiences_controller.rb:15:in `create'
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiences_controller.rb:15:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:16:in `create'
+  [1m[36mExperience::HABTM_Users Create (0.6ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 1], ["experience_id", 5]]
+  ↳ app/controllers/experiences_controller.rb:16:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiences_controller.rb:16:in `create'
+Completed 201 Created in 172ms (Views: 0.5ms | ActiveRecord: 82.0ms | Allocations: 17836)
+
+
