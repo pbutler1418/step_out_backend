@@ -412,3 +412,645 @@ Processing by AuthenticationController#verify as */*
 Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 1010)
 
 
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(718161279603062295)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJoinTableUserExperience (20200408185618)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (39.4ms)[0m  [1m[35mCREATE TABLE "experiences_users" ("user_id" bigint NOT NULL, "experience_id" bigint NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200408185618"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateJoinTableUserBucketlist (20200408185747)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "bucketlists_users" ("user_id" bigint NOT NULL, "bucketlist_id" bigint NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200408185747"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(718161279603062295)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mExperience Load (7.1ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mExperience Load (0.6ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."name" = $1 LIMIT $2[0m  [["name", "Bunkers"], ["LIMIT", 11]]
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."name" = $1 LIMIT $2[0m  [["name", "Bunkers"], ["LIMIT", 11]]
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."name" = $1[0m  [["name", "Bunkers"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."name" = $1 LIMIT $2[0m  [["name", "Bunkers"], ["LIMIT", 11]]
+  [1m[36mExperience Load (0.8ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."name" = $1[0m  [["name", "Bunkers"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Pierce"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Pierce@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mExperience Load (0.7ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."name" = $1 LIMIT $2[0m  [["name", "Bunkers"], ["LIMIT", 11]]
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."name" = $1[0m  [["name", "Bunkers"]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."name" = $1 LIMIT $2[0m  [["name", "Bunkers"], ["LIMIT", 11]]
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."name" = $1[0m  [["name", "Bunkers"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (52.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "StepOutYourDoor_development"[0m
+  [1m[35m (64.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "StepOutYourDoor_test"[0m
+  [1m[35m (254.5ms)[0m  [1m[35mCREATE DATABASE "StepOutYourDoor_development" ENCODING = 'unicode'[0m
+  [1m[35m (117.0ms)[0m  [1m[35mCREATE DATABASE "StepOutYourDoor_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists" CASCADE[0m
+  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE "bucketlists" ("id" bigserial primary key, "name" character varying, "location" character varying, "how" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists_users" CASCADE[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "bucketlists_users" ("user_id" bigint NOT NULL, "bucketlist_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences" CASCADE[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" bigserial primary key, "name" character varying, "location" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences_users" CASCADE[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "experiences_users" ("user_id" bigint NOT NULL, "experience_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "avatar" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200408185747)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200406164243),
+(20200406171212),
+(20200406171925),
+(20200408185618);
+
+[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-08 23:04:38.085265"], ["updated_at", "2020-04-08 23:04:38.085265"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "698d5c8c4cabcc4df22e8416dbcfbc4b8dc36e1c"], ["created_at", "2020-04-08 23:04:38.095872"], ["updated_at", "2020-04-08 23:04:38.095872"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists" CASCADE[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "bucketlists" ("id" bigserial primary key, "name" character varying, "location" character varying, "how" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists_users" CASCADE[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "bucketlists_users" ("user_id" bigint NOT NULL, "bucketlist_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences" CASCADE[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" bigserial primary key, "name" character varying, "location" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences_users" CASCADE[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "experiences_users" ("user_id" bigint NOT NULL, "experience_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "avatar" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200408185747)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200406164243),
+(20200406171212),
+(20200406171925),
+(20200408185618);
+
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-08 23:04:38.189201"], ["updated_at", "2020-04-08 23:04:38.189201"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (2.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-04-08 23:04:38.196478"], ["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "698d5c8c4cabcc4df22e8416dbcfbc4b8dc36e1c"], ["created_at", "2020-04-08 23:04:38.204979"], ["updated_at", "2020-04-08 23:04:38.204979"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Pierce"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Pierce@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Pierce"], ["email", "Pierce@email.com"], ["password_digest", "$2a$12$cARQDWzA80jADV4XZcTdk.DpwGIIiB2kbVDuCaCW.gPpumHsobcym"], ["created_at", "2020-04-08 23:04:38.571862"], ["updated_at", "2020-04-08 23:04:38.571862"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Michael"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Michael@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Michael"], ["email", "Michael@email.com"], ["password_digest", "$2a$12$CLJYakg6lmkmj82yO1EhNe53pm/1AlFbt1w1DlLnQNvOjigJHirny"], ["created_at", "2020-04-08 23:04:38.850697"], ["updated_at", "2020-04-08 23:04:38.850697"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Butler"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Butler@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Butler"], ["email", "Butler@email.com"], ["password_digest", "$2a$12$oPFmFd8hyUNs7whi5bvaKOYv5vkTM1qkqv8LwW4UNufH0PWvA8spy"], ["created_at", "2020-04-08 23:04:39.128327"], ["updated_at", "2020-04-08 23:04:39.128327"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mExperience Create (1.1ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bunkers"], ["location", "Barcelona, Spain"], ["description", "Hiked up to the tallest hill in Barcelona for sunset."], ["created_at", "2020-04-08 23:04:39.188127"], ["updated_at", "2020-04-08 23:04:39.188127"]]
+  [1m[36mExperience::HABTM_Users Create (0.4ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 1], ["experience_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Michael"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Michael@email.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mExperience Create (0.3ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Waterford vs Tipperary Hurling Match"], ["location", "Limerick, Ireland"], ["description", "Watched a hurling match with a crowd filled with highly passionate hurling fans."], ["created_at", "2020-04-08 23:04:39.202398"], ["updated_at", "2020-04-08 23:04:39.202398"]]
+  [1m[36mExperience::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 2], ["experience_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Butler"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Butler@email.com"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mExperience Create (0.4ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Liverpool House"], ["location", "Montreal, Canada"], ["description", "Ate dinner at the world famous Liverpool House"], ["created_at", "2020-04-08 23:04:39.215177"], ["updated_at", "2020-04-08 23:04:39.215177"]]
+  [1m[36mExperience::HABTM_Users Create (0.3ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 3], ["experience_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "experiences"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "experiences_users" ON "experiences"."id" = "experiences_users"."experience_id" WHERE "experiences_users"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "experiences_users" ON "users"."id" = "experiences_users"."user_id" WHERE "experiences_users"."experience_id" = $1 LIMIT $2[0m  [["experience_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (56.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "StepOutYourDoor_development"[0m
+  [1m[35m (41.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "StepOutYourDoor_test"[0m
+  [1m[35m (116.3ms)[0m  [1m[35mCREATE DATABASE "StepOutYourDoor_development" ENCODING = 'unicode'[0m
+  [1m[35m (135.5ms)[0m  [1m[35mCREATE DATABASE "StepOutYourDoor_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists" CASCADE[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "bucketlists" ("id" bigserial primary key, "name" character varying, "location" character varying, "how" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists_users" CASCADE[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "bucketlists_users" ("user_id" bigint NOT NULL, "bucketlist_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences" CASCADE[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" bigserial primary key, "name" character varying, "location" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences_users" CASCADE[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "experiences_users" ("user_id" bigint NOT NULL, "experience_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "avatar" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200408185747)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200406164243),
+(20200406171212),
+(20200406171925),
+(20200408185618);
+
+[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-08 23:09:50.109201"], ["updated_at", "2020-04-08 23:09:50.109201"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "698d5c8c4cabcc4df22e8416dbcfbc4b8dc36e1c"], ["created_at", "2020-04-08 23:09:50.118611"], ["updated_at", "2020-04-08 23:09:50.118611"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists" CASCADE[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "bucketlists" ("id" bigserial primary key, "name" character varying, "location" character varying, "how" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists_users" CASCADE[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "bucketlists_users" ("user_id" bigint NOT NULL, "bucketlist_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences" CASCADE[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" bigserial primary key, "name" character varying, "location" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences_users" CASCADE[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "experiences_users" ("user_id" bigint NOT NULL, "experience_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "avatar" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200408185747)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200406164243),
+(20200406171212),
+(20200406171925),
+(20200408185618);
+
+[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-08 23:09:50.204799"], ["updated_at", "2020-04-08 23:09:50.204799"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-04-08 23:09:50.212053"], ["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "698d5c8c4cabcc4df22e8416dbcfbc4b8dc36e1c"], ["created_at", "2020-04-08 23:09:50.218535"], ["updated_at", "2020-04-08 23:09:50.218535"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Pierce"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Pierce@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Pierce"], ["email", "Pierce@email.com"], ["password_digest", "$2a$12$c6qWxSCJahnaJd637khjWeljwYz8GA9o891k4GWNH43axL61y2b/6"], ["created_at", "2020-04-08 23:09:50.568235"], ["updated_at", "2020-04-08 23:09:50.568235"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Michael"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Michael@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Michael"], ["email", "Michael@email.com"], ["password_digest", "$2a$12$bjITGTN25XiDg3bsrkwiPu23pCuNn5pwxu9HgahJAy3DbmaDLBy2O"], ["created_at", "2020-04-08 23:09:50.855382"], ["updated_at", "2020-04-08 23:09:50.855382"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Butler"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Butler@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Butler"], ["email", "Butler@email.com"], ["password_digest", "$2a$12$6kScO2RWht1ZV4XVpRCN5uyKBAbkH/GLq7aWLERynkcM1.o8qsVwO"], ["created_at", "2020-04-08 23:09:51.143122"], ["updated_at", "2020-04-08 23:09:51.143122"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mExperience Create (0.7ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bunkers"], ["location", "Barcelona, Spain"], ["description", "Hiked up to the tallest hill in Barcelona for sunset."], ["created_at", "2020-04-08 23:09:51.180038"], ["updated_at", "2020-04-08 23:09:51.180038"]]
+  [1m[36mExperience::HABTM_Users Create (0.8ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 1], ["experience_id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Michael"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Michael@email.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mExperience Create (0.3ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Waterford vs Tipperary Hurling Match"], ["location", "Limerick, Ireland"], ["description", "Watched a hurling match with a crowd filled with highly passionate hurling fans."], ["created_at", "2020-04-08 23:09:51.210293"], ["updated_at", "2020-04-08 23:09:51.210293"]]
+  [1m[36mExperience::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 2], ["experience_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Butler"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Butler@email.com"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mExperience Create (0.3ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Liverpool House"], ["location", "Montreal, Canada"], ["description", "Ate dinner at the world famous Liverpool House"], ["created_at", "2020-04-08 23:09:51.222168"], ["updated_at", "2020-04-08 23:09:51.222168"]]
+  [1m[36mExperience::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 3], ["experience_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "experiences"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Michael"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Michael@email.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mBucketlist Create (0.6ms)[0m  [1m[32mINSERT INTO "bucketlists" ("name", "location", "how", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bunkers"], ["location", "Barcelona, Spain"], ["how", "Hiked up to the tallest hill in Barcelona for sunset."], ["created_at", "2020-04-08 23:09:51.252623"], ["updated_at", "2020-04-08 23:09:51.252623"]]
+  [1m[36mBucketlist::HABTM_Users Create (0.4ms)[0m  [1m[32mINSERT INTO "bucketlists_users" ("user_id", "bucketlist_id") VALUES ($1, $2)[0m  [["user_id", 2], ["bucketlist_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Butler"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Butler@email.com"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mBucketlist Create (0.4ms)[0m  [1m[32mINSERT INTO "bucketlists" ("name", "location", "how", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Waterford vs Tipperary Hurling Match"], ["location", "Limerick, Ireland"], ["how", "Watched a hurling match with a crowd filled with highly passionate hurling fans."], ["created_at", "2020-04-08 23:09:51.266439"], ["updated_at", "2020-04-08 23:09:51.266439"]]
+  [1m[36mBucketlist::HABTM_Users Create (0.3ms)[0m  [1m[32mINSERT INTO "bucketlists_users" ("user_id", "bucketlist_id") VALUES ($1, $2)[0m  [["user_id", 3], ["bucketlist_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mBucketlist Create (0.4ms)[0m  [1m[32mINSERT INTO "bucketlists" ("name", "location", "how", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Liverpool House"], ["location", "Montreal, Canada"], ["how", "Ate dinner at the world famous Liverpool House"], ["created_at", "2020-04-08 23:09:51.278953"], ["updated_at", "2020-04-08 23:09:51.278953"]]
+  [1m[36mBucketlist::HABTM_Users Create (0.5ms)[0m  [1m[32mINSERT INTO "bucketlists_users" ("user_id", "bucketlist_id") VALUES ($1, $2)[0m  [["user_id", 1], ["bucketlist_id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (141.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "StepOutYourDoor_development"[0m
+  [1m[35m (43.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "StepOutYourDoor_test"[0m
+  [1m[35m (130.0ms)[0m  [1m[35mCREATE DATABASE "StepOutYourDoor_development" ENCODING = 'unicode'[0m
+  [1m[35m (143.8ms)[0m  [1m[35mCREATE DATABASE "StepOutYourDoor_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists" CASCADE[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "bucketlists" ("id" bigserial primary key, "name" character varying, "location" character varying, "how" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists_users" CASCADE[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "bucketlists_users" ("user_id" bigint NOT NULL, "bucketlist_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences" CASCADE[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" bigserial primary key, "name" character varying, "location" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences_users" CASCADE[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "experiences_users" ("user_id" bigint NOT NULL, "experience_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "avatar" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200408185747)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200406164243),
+(20200406171212),
+(20200406171925),
+(20200408185618);
+
+[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-08 23:11:08.595881"], ["updated_at", "2020-04-08 23:11:08.595881"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "698d5c8c4cabcc4df22e8416dbcfbc4b8dc36e1c"], ["created_at", "2020-04-08 23:11:08.605289"], ["updated_at", "2020-04-08 23:11:08.605289"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists" CASCADE[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "bucketlists" ("id" bigserial primary key, "name" character varying, "location" character varying, "how" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists_users" CASCADE[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "bucketlists_users" ("user_id" bigint NOT NULL, "bucketlist_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences" CASCADE[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" bigserial primary key, "name" character varying, "location" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences_users" CASCADE[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "experiences_users" ("user_id" bigint NOT NULL, "experience_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "avatar" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200408185747)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200406164243),
+(20200406171212),
+(20200406171925),
+(20200408185618);
+
+[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-08 23:11:08.700916"], ["updated_at", "2020-04-08 23:11:08.700916"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-04-08 23:11:08.708401"], ["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "698d5c8c4cabcc4df22e8416dbcfbc4b8dc36e1c"], ["created_at", "2020-04-08 23:11:08.715125"], ["updated_at", "2020-04-08 23:11:08.715125"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Pierce"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Pierce@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Pierce"], ["email", "Pierce@email.com"], ["password_digest", "$2a$12$ONrw40L4H5cG2UL0iZUAOOQaURAox2DYFhrwJbGkV.5Q.nbJlhlbO"], ["created_at", "2020-04-08 23:11:09.061076"], ["updated_at", "2020-04-08 23:11:09.061076"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Michael"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Michael@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Michael"], ["email", "Michael@email.com"], ["password_digest", "$2a$12$ca9Mtp8.n3OF43kJDc.L1OBvrnCZl.6dT92zObs0Yjw5CDFIz2lFq"], ["created_at", "2020-04-08 23:11:09.338843"], ["updated_at", "2020-04-08 23:11:09.338843"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Butler"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Butler@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Butler"], ["email", "Butler@email.com"], ["password_digest", "$2a$12$UGyYb.FgubS6pNuP1.JBNeR622/oIcAF67k7JW2juyL1mK05N3g0i"], ["created_at", "2020-04-08 23:11:09.630132"], ["updated_at", "2020-04-08 23:11:09.630132"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mExperience Create (0.7ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bunkers"], ["location", "Barcelona, Spain"], ["description", "Hiked up to the tallest hill in Barcelona for sunset."], ["created_at", "2020-04-08 23:11:09.663905"], ["updated_at", "2020-04-08 23:11:09.663905"]]
+  [1m[36mExperience::HABTM_Users Create (0.5ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 1], ["experience_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Michael"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Michael@email.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mExperience Create (0.3ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Waterford vs Tipperary Hurling Match"], ["location", "Limerick, Ireland"], ["description", "Watched a hurling match with a crowd filled with highly passionate hurling fans."], ["created_at", "2020-04-08 23:11:09.692290"], ["updated_at", "2020-04-08 23:11:09.692290"]]
+  [1m[36mExperience::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 2], ["experience_id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Butler"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Butler@email.com"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mExperience Create (0.3ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Liverpool House"], ["location", "Montreal, Canada"], ["description", "Ate dinner at the world famous Liverpool House"], ["created_at", "2020-04-08 23:11:09.703478"], ["updated_at", "2020-04-08 23:11:09.703478"]]
+  [1m[36mExperience::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 3], ["experience_id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "experiences"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Michael"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Michael@email.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mBucketlist Create (0.7ms)[0m  [1m[32mINSERT INTO "bucketlists" ("name", "location", "how", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bunkers"], ["location", "Barcelona, Spain"], ["how", "Hiked up to the tallest hill in Barcelona for sunset."], ["created_at", "2020-04-08 23:11:09.732063"], ["updated_at", "2020-04-08 23:11:09.732063"]]
+  [1m[36mBucketlist::HABTM_Users Create (0.8ms)[0m  [1m[32mINSERT INTO "bucketlists_users" ("user_id", "bucketlist_id") VALUES ($1, $2)[0m  [["user_id", 2], ["bucketlist_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Butler"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Butler@email.com"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mBucketlist Create (0.6ms)[0m  [1m[32mINSERT INTO "bucketlists" ("name", "location", "how", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Waterford vs Tipperary Hurling Match"], ["location", "Limerick, Ireland"], ["how", "Watched a hurling match with a crowd filled with highly passionate hurling fans."], ["created_at", "2020-04-08 23:11:09.748272"], ["updated_at", "2020-04-08 23:11:09.748272"]]
+  [1m[36mBucketlist::HABTM_Users Create (0.3ms)[0m  [1m[32mINSERT INTO "bucketlists_users" ("user_id", "bucketlist_id") VALUES ($1, $2)[0m  [["user_id", 3], ["bucketlist_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mBucketlist Create (0.3ms)[0m  [1m[32mINSERT INTO "bucketlists" ("name", "location", "how", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Liverpool House"], ["location", "Montreal, Canada"], ["how", "Ate dinner at the world famous Liverpool House"], ["created_at", "2020-04-08 23:11:09.761580"], ["updated_at", "2020-04-08 23:11:09.761580"]]
+  [1m[36mBucketlist::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "bucketlists_users" ("user_id", "bucketlist_id") VALUES ($1, $2)[0m  [["user_id", 1], ["bucketlist_id", 3]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "bucketlists"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mBucketlist Load (0.5ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" INNER JOIN "bucketlists_users" ON "bucketlists"."id" = "bucketlists_users"."bucketlist_id" WHERE "bucketlists_users"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 19:29:17 -0400
+  
+SyntaxError (/Users/Pierce/SEI/Mandalorians/Unit_4/Week_2/Step-Out-Your-Door/p4/StepOutYourDoor/config/routes.rb:7: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+...t'/users/:id/experiences', to 'experiences#create'
+...                              ^):
+  
+config/routes.rb:7: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+config/routes.rb:7: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 19:31:05 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+Completed 404 Not Found in 26ms (ActiveRecord: 0.0ms | Allocations: 7800)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/experiences_controller.rb:19:in `create'
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 19:32:52 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 57ms (Views: 0.2ms | ActiveRecord: 13.6ms | Allocations: 23488)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 19:35:15 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+Completed 422 Unprocessable Entity in 44ms (Views: 0.2ms | ActiveRecord: 10.0ms | Allocations: 19747)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 19:35:16 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+Completed 422 Unprocessable Entity in 18ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 6036)
+
+
+Started GET "/users/" for ::1 at 2020-04-08 19:36:44 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 1263)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mExperience Load (0.6ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "experiences_users" ON "experiences"."id" = "experiences_users"."experience_id" WHERE "experiences_users"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "experiences_users" ON "users"."id" = "experiences_users"."user_id" WHERE "experiences_users"."experience_id" = $1 LIMIT $2[0m  [["experience_id", 1], ["LIMIT", 11]]
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 19:56:36 -0400
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 202)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/controllers/experiences_controller.rb:51:in `[]'
+app/controllers/experiences_controller.rb:51:in `experience_params'
+app/controllers/experiences_controller.rb:18:in `create'
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 19:58:20 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+Completed 422 Unprocessable Entity in 58ms (Views: 0.3ms | ActiveRecord: 11.5ms | Allocations: 24667)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 20:00:35 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:23:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 50ms (Views: 0.2ms | ActiveRecord: 10.8ms | Allocations: 19725)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 20:01:24 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:23:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 43ms (Views: 0.2ms | ActiveRecord: 9.7ms | Allocations: 19756)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 20:04:46 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 7.7ms | Allocations: 16555)
+
+
+  
+NoMethodError (undefined method `id' for #<User::ActiveRecord_Associations_CollectionProxy:0x00007fecd9c8cdf0>
+Did you mean?  ids):
+  
+app/controllers/experiences_controller.rb:22:in `create'
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 20:05:33 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:23:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 44ms (Views: 0.2ms | ActiveRecord: 8.6ms | Allocations: 19848)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 20:07:01 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 46ms (Views: 0.3ms | ActiveRecord: 9.5ms | Allocations: 19858)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 20:08:47 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mExperience Create (0.7ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Empire State Building"], ["location", "New York City"], ["description", "Went sightseeing."], ["created_at", "2020-04-09 00:08:47.857580"], ["updated_at", "2020-04-09 00:08:47.857580"]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 201 Created in 45ms (Views: 0.9ms | ActiveRecord: 9.8ms | Allocations: 15712)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-08 20:12:34 -0400
+Processing by ExperiencesController#create as */*
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York City", "description"=>"Went sightseeing."}, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/experiences_controller.rb:24:in `create'
+Completed 422 Unprocessable Entity in 50ms (Views: 0.4ms | ActiveRecord: 9.4ms | Allocations: 18441)
+
+
