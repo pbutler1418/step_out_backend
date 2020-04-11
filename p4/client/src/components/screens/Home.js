@@ -13,7 +13,8 @@ import Experiences from './Experiences'
 import {
   loginUser,
   registerUser,
-  verifyUser
+  verifyUser,
+  removeToken
 } from '../services/api-help';
 
 
@@ -67,13 +68,13 @@ class Home extends Component {
   // set the current user in state back to null
   // and call our remove token function to remove
   // the auth headers from our api call
-  // handleLogout = () => {
-  //   localStorage.removeItem("jwt");
-  //   this.setState({
-  //     currentUser: null
-  //   })
-  //   removeToken();
-  // }
+  handleLogout = () => {
+    localStorage.removeItem("jwt");
+    this.setState({
+      currentUser: null
+    })
+    removeToken();
+  }
 
   // Handle change function for the auth forms
   handleChange = (e) => {
@@ -137,6 +138,7 @@ class Home extends Component {
               >
                 Teleporter
           </NavLink>
+          <button onClick={this.handleLogout}>logout</button>
             </nav>
             <h1>Stepping Out Your Door</h1>
           </div>
