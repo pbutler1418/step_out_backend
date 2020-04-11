@@ -41,6 +41,7 @@ class Home extends Component {
 
   handleLogin = async () => {
     const currentUser = await loginUser({
+      name: this.state.authFormData.name,
       email: this.state.authFormData.email,
       password: this.state.authFormData.password
     });
@@ -160,7 +161,12 @@ class Home extends Component {
                 />
               )} />
               <Route path="/experiences" component={Experiences} />
-              <Route path="/userprofile" component={UserProfile} />
+              <Route exact path="/userprofile" render={() => (
+                <UserProfile
+                  authFormData={this.state.authFormData}
+                  handleChange={this.handleChange}
+                />
+              )} />
               <Route path="/teleporter" component={Teleporter} />
             </Switch>
           </main>

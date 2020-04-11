@@ -42,7 +42,7 @@ export const removeToken = () => {
 
 export const showExperiences = async () => {
   const experiences = []
-  const resp = await api.get(`/experiences`)
+  const resp = await axios.get(`http://localhost:3000/experiences/`)
   experiences.push(resp)
   return experiences
 }
