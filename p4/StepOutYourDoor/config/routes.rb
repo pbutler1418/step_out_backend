@@ -8,6 +8,7 @@ post '/users/:id/experiences', to: 'experiences#create'
 
 
 # ============== Auth =====================
+post '/users/', to: 'users#create'
 post '/auth/login', to: 'authentication#login'
 get '/auth/verify', to: 'authentication#verify'
 end

@@ -36,8 +36,8 @@ a{
   transition: 0.2s;
 }
 a:hover {
-  color: #ffffff;
-  background: transparent;
+  color: #000000;
+  background: #ffffff;
   box-shadow: 0 0 10px #ffffff, 0 0 40px #ffffff, 0 0 80px #ffffff;
   /* transition-delay: 1s; */
   font-size: 30px;

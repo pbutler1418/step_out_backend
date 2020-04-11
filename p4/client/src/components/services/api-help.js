@@ -65,3 +65,4 @@ export const showExperiences = async () => {
 //   const resp = await api.delete(`/foods/${id}`);
 //   return resp.data;
 // }
+export default api
