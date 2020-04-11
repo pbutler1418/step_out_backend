@@ -47,6 +47,13 @@ export const showExperiences = async () => {
   return experiences
 }
 
+export const showUserExperiences = async () => {
+  const experiences = []
+  const resp = await axios.get(`http://localhost:3000/users/:id/experiences`)
+  experiences.push(resp)
+  return experiences
+}
+
 // export const showFoodExperience = async (id) => {
 //   const resp = await api(`/foods/${id}`)
 //   return resp.data;

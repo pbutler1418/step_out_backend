@@ -4,7 +4,9 @@ resources :experiences
 
 get '/users/', to: 'users#index'
 get '/experiences/', to: 'experiences#index'
+post '/users/:id/', to: 'users#show'
 post '/users/:id/experiences', to: 'experiences#create'
+get '/users/:id/experiences', to: 'experiences#show'
 
 
 # ============== Auth =====================

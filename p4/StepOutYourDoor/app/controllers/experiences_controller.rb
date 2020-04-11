@@ -1,5 +1,5 @@
 class ExperiencesController < ApplicationController
-  before_action :set_experience, only: [:show, :update, :destroy]
+  # before_action :set_experience, only: [:show, :update, :destroy]
 
   # GET /experiences
   def index
@@ -7,6 +7,12 @@ class ExperiencesController < ApplicationController
 
     render json: @experiences
   end
+
+  def show
+    @user = User.find(params[:id])
+    render json: @user.experiences
+  end
+
 
   # POST 
   def create
