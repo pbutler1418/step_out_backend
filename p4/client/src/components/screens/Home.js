@@ -141,11 +141,18 @@ class Home extends Component {
           </NavLink>
           <button onClick={this.handleLogout}>logout</button>
             </nav>
-            <h1>Stepping Out Your Door</h1>
           </div>
           <main>
             <Switch>
-              <Route exact path="/" />
+              <Route exact path="/" render={() =>
+                <>
+                (
+                            <h1>Stepping Out Your Door</h1>
+                            <h3>“It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to.”
+                
+                ― J.R.R. Tolkien, The Lord of the Rings</h3>
+              )
+              </>}/>
               <Route exact path="/sign-in" render={() => (
                 <SignIn
                   authFormData={this.state.authFormData}
