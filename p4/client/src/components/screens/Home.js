@@ -4,7 +4,6 @@ import { Route, Switch, NavLink } from "react-router-dom"
 // import Landing from "./Landing"
 import SignUp from "./SignUp"
 import SignIn from "./SignIn"
-import AuthenticatedRoute from "../routes/AuthenticatedRoute"
 import Teleporter from './teleporter'
 import UserProfile from './UserProfile'
 import Experiences from './Experiences'
@@ -35,6 +34,17 @@ class Home extends Component {
   handleLoginButton = () => {
     this.props.push("/login")
   }
+
+
+  // setExperienceForm = (experience) => {
+  //   this.setState({
+  //     formData: {
+  //       name: experience.name,
+  //       location: experience.location,
+  //       description: experience.description
+  //     }
+  //   })
+  // }
   componentDidMount = () => {
     this.handleVerify();
   }
@@ -75,6 +85,7 @@ class Home extends Component {
       currentUser: null
     })
     removeToken();
+    this.props.history.push("/")
   }
 
   // Handle change function for the auth forms
@@ -146,12 +157,12 @@ class Home extends Component {
             <Switch>
               <Route exact path="/" render={() =>
                 <>
-                (
+                
                             <h1>Stepping Out Your Door</h1>
                             <h3>“It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to.”
                 
                 ― J.R.R. Tolkien, The Lord of the Rings</h3>
-              )
+              
               </>}/>
               <Route exact path="/sign-in" render={() => (
                 <SignIn
@@ -167,11 +178,14 @@ class Home extends Component {
                   handleChange={this.handleChange}
                 />
               )} />
-              <Route path="/experiences" component={Experiences} />
+              <Route path="/experiences" render={() => (
+                <Experiences/>
+              )} />
               <Route exact path="/userprofile" render={() => (
                 <UserProfile
                   authFormData={this.state.authFormData}
                   handleChange={this.handleChange}
+                  currentUser={this.state.currentUser}
                 />
               )} />
               <Route path="/teleporter" component={Teleporter} />

@@ -59,10 +59,10 @@ export const showUserExperiences = async () => {
 //   return resp.data;
 // }
 
-// export const postExperience = async (item) => {
-//   const resp = await api.post(`/foods`, { food: item })
-//   return resp.data
-// }
+export const postExperience = async (item) => {
+  const resp = await api.post(`/users/:id/experiences`, { experience: item })
+  return resp.data
+}
 
 // export const putExperience = async (item, id) => {
 //   const resp = await api.put(`/foods/${id}`, { food: item })

@@ -1,5 +1,5 @@
 class ExperiencesController < ApplicationController
-  # before_action :set_experience, only: [:show, :update, :destroy]
+  before_action :set_experience, only: [:show, :update, :destroy]
 
   # GET /experiences
   def index
@@ -25,8 +25,18 @@ class ExperiencesController < ApplicationController
       render json: @experience.errors, status: :unprocessable_entity
     end
   end
+
+  def delete
+    @experience = Experience.find(params[:id])
+    puts @experience, "HEY"
+    @experience.destroy
+  end
     # Only allow a trusted parameter "white list" through.
     def experience_params
       params.require(:experience).permit(:name, :location, :description)
     end
+end
+
+def set_experience
+  @experience = Experience.find(params[:id])
 end

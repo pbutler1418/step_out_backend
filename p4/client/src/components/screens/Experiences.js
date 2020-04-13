@@ -1,15 +1,16 @@
 import React, { Component } from "react"
-// import { showExperiences } from '../services/api-help'
+import AddExperience from "../AddExperience"
 import axios from "axios"
 
 class Experiences extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       experiences: []
     }
   }
+
 
   async componentDidMount() {
     try {
@@ -23,29 +24,34 @@ class Experiences extends Component {
       alert("ERROR")
     }
   }
+  // deleteUser = async (user) => { await axios.delete(`/users/${id}`);;
+  //   this.setState(prevState => ({
+  //     user: prevState.user.filter(singleUser => singleUser.id !== user.id)
+  //   }))
+  // }
 
   render() {
     console.log(this.state.experiences)
     let allExperiences = this.state.experiences.map((experience, index) => {
       return (
+        <>
         <div key={index}>
           <h2>{experience.name}</h2>
           <h2>{experience.location}</h2>
           <p>{experience.description}</p>
           
         </div>
+        </>
       )
     })
     return (
-      <>
-      <h1>Experiences</h1>
+      <div className = "Experiences">
+        <h1>Experiences</h1>
         {allExperiences}
-      </>
+      
+      </div>
       )
     }
-    // this.componentDidMount(){
-    //   showExperiences()
-    // }
   
 }
 

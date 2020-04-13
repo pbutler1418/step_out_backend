@@ -7,6 +7,8 @@ get '/experiences/', to: 'experiences#index'
 post '/users/:id/', to: 'users#show'
 post '/users/:id/experiences', to: 'experiences#create'
 get '/users/:id/experiences', to: 'experiences#show'
+put '/users/:id/', to: 'users#update'
+delete '/users/:user_id/experiences/:id', to: 'experiences#delete'
 
 
 # ============== Auth =====================
