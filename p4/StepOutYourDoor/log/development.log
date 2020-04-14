@@ -13032,3 +13032,572 @@ Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms | Allocations: 618)
 ActiveRecord::RecordNotFound (Couldn't find Experience with 'id'=2):
   
 app/controllers/experiences_controller.rb:41:in `set_experience'
+Started GET "/experiences/" for ::1 at 2020-04-13 19:42:11 -0400
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (0.6ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.6ms | Allocations: 938)
+
+
+Started GET "/experiences/" for ::1 at 2020-04-13 19:42:14 -0400
+Started GET "/auth/verify" for ::1 at 2020-04-13 19:42:14 -0400
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (0.7ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.7ms | Allocations: 1234)
+
+
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 902)
+
+
+Started GET "/users/2" for ::1 at 2020-04-13 19:42:15 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `set_user'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 759)
+
+
+Started GET "/users/2/experiences" for ::1 at 2020-04-13 19:42:15 -0400
+Processing by ExperiencesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:41:in `set_experience'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.5ms | Allocations: 621)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Experience with 'id'=2):
+  
+app/controllers/experiences_controller.rb:41:in `set_experience'
+Started POST "/users/2/experiences" for ::1 at 2020-04-13 19:42:25 -0400
+Processing by ExperiencesController#create as HTML
+  Parameters: {"experience"=>{"name"=>"Pacific Coast Highway", "location"=>"California", "description"=>"Road from San Francisco to San Diego on the Pacific Coast Highway"}, "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:20:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mExperience Create (0.8ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Pacific Coast Highway"], ["location", "California"], ["description", "Road from San Francisco to San Diego on the Pacific Coast Highway"], ["created_at", "2020-04-13 23:42:25.760847"], ["updated_at", "2020-04-13 23:42:25.760847"]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[36mExperience::HABTM_Users Create (0.5ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 2], ["experience_id", 4]]
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+Completed 201 Created in 28ms (Views: 0.4ms | ActiveRecord: 8.6ms | Allocations: 8811)
+
+
+Started GET "/auth/verify" for ::1 at 2020-04-13 19:42:29 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started POST "/auth/login" for ::1 at 2020-04-13 19:42:34 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"name"=>"", "email"=>"Michael@email.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"name"=>"", "email"=>"Michael@email.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :name[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Michael@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+[31mUnpermitted parameter: :name[0m
+Completed 200 OK in 275ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1037)
+
+
+Started GET "/users/2" for ::1 at 2020-04-13 19:42:36 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `set_user'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 759)
+
+
+Started GET "/users/2/experiences" for ::1 at 2020-04-13 19:42:36 -0400
+Processing by ExperiencesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:41:in `set_experience'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.3ms | Allocations: 618)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Experience with 'id'=2):
+  
+app/controllers/experiences_controller.rb:41:in `set_experience'
+Started POST "/auth/login" for ::1 at 2020-04-13 19:42:57 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"name"=>"", "email"=>"Pierce@email.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"name"=>"", "email"=>"Pierce@email.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :name[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Pierce@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+[31mUnpermitted parameter: :name[0m
+Completed 200 OK in 274ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1034)
+
+
+Started GET "/users/1" for ::1 at 2020-04-13 19:42:59 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `set_user'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 759)
+
+
+Started GET "/users/1/experiences" for ::1 at 2020-04-13 19:42:59 -0400
+Processing by ExperiencesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:41:in `set_experience'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.3ms | Allocations: 618)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Experience with 'id'=1):
+  
+app/controllers/experiences_controller.rb:41:in `set_experience'
+Started GET "/experiences/" for ::1 at 2020-04-13 19:43:01 -0400
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 1069)
+
+
+Started GET "/users/1" for ::1 at 2020-04-13 19:43:03 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `set_user'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 759)
+
+
+Started GET "/users/1/experiences" for ::1 at 2020-04-13 19:43:03 -0400
+Processing by ExperiencesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:41:in `set_experience'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms | Allocations: 618)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Experience with 'id'=1):
+  
+app/controllers/experiences_controller.rb:41:in `set_experience'
+Started GET "/experiences/" for ::1 at 2020-04-13 19:43:07 -0400
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (0.7ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.7ms | Allocations: 1068)
+
+
+Started GET "/users/1" for ::1 at 2020-04-13 19:43:11 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `set_user'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 759)
+
+
+Started GET "/users/1/experiences" for ::1 at 2020-04-13 19:43:11 -0400
+Processing by ExperiencesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:41:in `set_experience'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.3ms | Allocations: 618)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Experience with 'id'=1):
+  
+app/controllers/experiences_controller.rb:41:in `set_experience'
+Started POST "/users/1/experiences" for ::1 at 2020-04-13 19:43:57 -0400
+Processing by ExperiencesController#create as HTML
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York, New York", "description"=>"Went sightseeing on the top of the Empire State Building"}, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mExperience Create (0.4ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Empire State Building"], ["location", "New York, New York"], ["description", "Went sightseeing on the top of the Empire State Building"], ["created_at", "2020-04-13 23:43:57.626863"], ["updated_at", "2020-04-13 23:43:57.626863"]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[36mExperience::HABTM_Users Create (0.5ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 1], ["experience_id", 5]]
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+Completed 201 Created in 20ms (Views: 0.4ms | ActiveRecord: 7.9ms | Allocations: 5760)
+
+
+Started GET "/experiences/" for ::1 at 2020-04-13 19:44:04 -0400
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 1199)
+
+
+Started GET "/users/1" for ::1 at 2020-04-13 19:44:07 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `set_user'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 759)
+
+
+Started GET "/users/1/experiences" for ::1 at 2020-04-13 19:44:07 -0400
+Processing by ExperiencesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExperience Load (0.6ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:41:in `set_experience'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.6ms | Allocations: 618)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Experience with 'id'=1):
+  
+app/controllers/experiences_controller.rb:41:in `set_experience'
+Started GET "/experiences/" for ::1 at 2020-04-13 19:44:13 -0400
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1198)
+
+
+Started GET "/users/1" for ::1 at 2020-04-13 19:44:15 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `set_user'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 759)
+
+
+Started GET "/users/1/experiences" for ::1 at 2020-04-13 19:44:15 -0400
+Processing by ExperiencesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:41:in `set_experience'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms | Allocations: 618)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Experience with 'id'=1):
+  
+app/controllers/experiences_controller.rb:41:in `set_experience'
+Started GET "/experiences/" for ::1 at 2020-04-13 19:44:48 -0400
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 1198)
+
+
+Started GET "/users/1" for ::1 at 2020-04-13 19:44:50 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `set_user'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 759)
+
+
+Started GET "/users/1/experiences" for ::1 at 2020-04-13 19:44:50 -0400
+Processing by ExperiencesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:41:in `set_experience'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms | Allocations: 618)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Experience with 'id'=1):
+  
+app/controllers/experiences_controller.rb:41:in `set_experience'
+Started GET "/auth/verify" for ::1 at 2020-04-13 19:45:33 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 811)
+
+
+Started POST "/auth/login" for ::1 at 2020-04-13 19:45:58 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"name"=>"", "email"=>"Pierce@email.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"name"=>"", "email"=>"Pierce@email.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :name[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Pierce@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+[31mUnpermitted parameter: :name[0m
+Completed 200 OK in 287ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1035)
+
+
+Started GET "/users/1" for ::1 at 2020-04-13 19:46:00 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `set_user'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 759)
+
+
+Started GET "/users/1/experiences" for ::1 at 2020-04-13 19:46:00 -0400
+Processing by ExperiencesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:41:in `set_experience'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms | Allocations: 618)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Experience with 'id'=1):
+  
+app/controllers/experiences_controller.rb:41:in `set_experience'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (7953.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "StepOutYourDoor_development"[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (47.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "StepOutYourDoor_development"[0m
+  [1m[35m (41.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "StepOutYourDoor_test"[0m
+  [1m[35m (118.4ms)[0m  [1m[35mCREATE DATABASE "StepOutYourDoor_development" ENCODING = 'unicode'[0m
+  [1m[35m (136.6ms)[0m  [1m[35mCREATE DATABASE "StepOutYourDoor_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists" CASCADE[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "bucketlists" ("id" bigserial primary key, "name" character varying, "location" character varying, "how" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists_users" CASCADE[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "bucketlists_users" ("user_id" bigint NOT NULL, "bucketlist_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences" CASCADE[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" bigserial primary key, "name" character varying, "location" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences_users" CASCADE[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "experiences_users" ("user_id" bigint NOT NULL, "experience_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "avatar" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200408185747)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200406164243),
+(20200406171212),
+(20200406171925),
+(20200408185618);
+
+[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-13 23:46:50.114763"], ["updated_at", "2020-04-13 23:46:50.114763"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "698d5c8c4cabcc4df22e8416dbcfbc4b8dc36e1c"], ["created_at", "2020-04-13 23:46:50.126786"], ["updated_at", "2020-04-13 23:46:50.126786"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists" CASCADE[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "bucketlists" ("id" bigserial primary key, "name" character varying, "location" character varying, "how" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "bucketlists_users" CASCADE[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "bucketlists_users" ("user_id" bigint NOT NULL, "bucketlist_id" bigint NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" bigserial primary key, "name" character varying, "location" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "experiences_users" CASCADE[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "experiences_users" ("user_id" bigint NOT NULL, "experience_id" bigint NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "avatar" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200408185747)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200406164243),
+(20200406171212),
+(20200406171925),
+(20200408185618);
+
+[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-13 23:46:50.220228"], ["updated_at", "2020-04-13 23:46:50.220228"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-04-13 23:46:50.227780"], ["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "698d5c8c4cabcc4df22e8416dbcfbc4b8dc36e1c"], ["created_at", "2020-04-13 23:46:50.234197"], ["updated_at", "2020-04-13 23:46:50.234197"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Pierce"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Pierce@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Pierce"], ["email", "Pierce@email.com"], ["password_digest", "$2a$12$za1H5wIqeLrrQLEQ1L8fBej3RDln1brigSyZ5LqXtOB2qH1NATk/e"], ["created_at", "2020-04-13 23:46:50.584213"], ["updated_at", "2020-04-13 23:46:50.584213"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Michael"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Michael@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Michael"], ["email", "Michael@email.com"], ["password_digest", "$2a$12$6coIlMv23woxFrLA7oO3/eBKRSacIsrynSmlFdjsqQOjq4yjuJeiS"], ["created_at", "2020-04-13 23:46:50.886294"], ["updated_at", "2020-04-13 23:46:50.886294"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Butler"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Butler@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Butler"], ["email", "Butler@email.com"], ["password_digest", "$2a$12$tgNX1WlGe4.HMOOOnf/Kn.ykqFMVz2yVuJTDoW8OtRPEj4ujOj2NC"], ["created_at", "2020-04-13 23:46:51.167972"], ["updated_at", "2020-04-13 23:46:51.167972"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mExperience Create (1.1ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bunkers"], ["location", "Barcelona, Spain"], ["description", "Hiked up to the tallest hill in Barcelona for sunset."], ["created_at", "2020-04-13 23:46:51.210042"], ["updated_at", "2020-04-13 23:46:51.210042"]]
+  [1m[36mExperience::HABTM_Users Create (0.5ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 1], ["experience_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Michael"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Michael@email.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mExperience Create (0.3ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Waterford vs Tipperary Hurling Match"], ["location", "Limerick, Ireland"], ["description", "Watched a hurling match with a crowd filled with highly passionate hurling fans."], ["created_at", "2020-04-13 23:46:51.239322"], ["updated_at", "2020-04-13 23:46:51.239322"]]
+  [1m[36mExperience::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 2], ["experience_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Butler"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Butler@email.com"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mExperience Create (0.4ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Liverpool House"], ["location", "Montreal, Canada"], ["description", "Ate dinner at the world famous Liverpool House"], ["created_at", "2020-04-13 23:46:51.251897"], ["updated_at", "2020-04-13 23:46:51.251897"]]
+  [1m[36mExperience::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 3], ["experience_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "experiences"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Michael"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Michael@email.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mBucketlist Create (0.7ms)[0m  [1m[32mINSERT INTO "bucketlists" ("name", "location", "how", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bunkers"], ["location", "Barcelona, Spain"], ["how", "Hiked up to the tallest hill in Barcelona for sunset."], ["created_at", "2020-04-13 23:46:51.282354"], ["updated_at", "2020-04-13 23:46:51.282354"]]
+  [1m[36mBucketlist::HABTM_Users Create (0.3ms)[0m  [1m[32mINSERT INTO "bucketlists_users" ("user_id", "bucketlist_id") VALUES ($1, $2)[0m  [["user_id", 2], ["bucketlist_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Butler"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Butler@email.com"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mBucketlist Create (0.6ms)[0m  [1m[32mINSERT INTO "bucketlists" ("name", "location", "how", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Waterford vs Tipperary Hurling Match"], ["location", "Limerick, Ireland"], ["how", "Watched a hurling match with a crowd filled with highly passionate hurling fans."], ["created_at", "2020-04-13 23:46:51.297513"], ["updated_at", "2020-04-13 23:46:51.297513"]]
+  [1m[36mBucketlist::HABTM_Users Create (0.2ms)[0m  [1m[32mINSERT INTO "bucketlists_users" ("user_id", "bucketlist_id") VALUES ($1, $2)[0m  [["user_id", 3], ["bucketlist_id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "Pierce"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Pierce@email.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mBucketlist Create (0.3ms)[0m  [1m[32mINSERT INTO "bucketlists" ("name", "location", "how", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Liverpool House"], ["location", "Montreal, Canada"], ["how", "Ate dinner at the world famous Liverpool House"], ["created_at", "2020-04-13 23:46:51.310098"], ["updated_at", "2020-04-13 23:46:51.310098"]]
+  [1m[36mBucketlist::HABTM_Users Create (0.5ms)[0m  [1m[32mINSERT INTO "bucketlists_users" ("user_id", "bucketlist_id") VALUES ($1, $2)[0m  [["user_id", 1], ["bucketlist_id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "bucketlists"[0m
+Started POST "/auth/login" for ::1 at 2020-04-13 19:47:35 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"name"=>"", "email"=>"Pierce@email.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"name"=>"", "email"=>"Pierce@email.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :name[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Pierce@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+[31mUnpermitted parameter: :name[0m
+Completed 200 OK in 302ms (Views: 0.6ms | ActiveRecord: 7.4ms | Allocations: 9547)
+
+
+Started GET "/experiences/" for ::1 at 2020-04-13 19:47:38 -0400
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (1.0ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 50ms (Views: 33.1ms | ActiveRecord: 4.3ms | Allocations: 6960)
+
+
+Started GET "/users/1" for ::1 at 2020-04-13 19:47:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `set_user'
+Completed 200 OK in 7ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 964)
+
+
+Started GET "/users/1/experiences" for ::1 at 2020-04-13 19:47:40 -0400
+Processing by ExperiencesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:41:in `set_experience'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:12:in `show'
+  [1m[36mExperience Load (0.6ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "experiences_users" ON "experiences"."id" = "experiences_users"."experience_id" WHERE "experiences_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/experiences_controller.rb:13:in `show'
+Completed 200 OK in 42ms (Views: 18.3ms | ActiveRecord: 3.5ms | Allocations: 5615)
+
+
+Started GET "/experiences/" for ::1 at 2020-04-13 19:47:46 -0400
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms | Allocations: 1219)
+
+
+Started GET "/users/1" for ::1 at 2020-04-13 19:47:48 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `set_user'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 776)
+
+
+Started GET "/users/1/experiences" for ::1 at 2020-04-13 19:47:48 -0400
+Processing by ExperiencesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:41:in `set_experience'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:12:in `show'
+  [1m[36mExperience Load (0.6ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "experiences_users" ON "experiences"."id" = "experiences_users"."experience_id" WHERE "experiences_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/experiences_controller.rb:13:in `show'
+Completed 200 OK in 8ms (Views: 3.2ms | ActiveRecord: 1.5ms | Allocations: 2308)
+
+
+Started POST "/users/1/experiences" for ::1 at 2020-04-13 19:47:58 -0400
+Processing by ExperiencesController#create as HTML
+  Parameters: {"experience"=>{"name"=>"Empire State Building", "location"=>"New York, New York", "description"=>"Went sightseeing on the top of the Empire State Building"}, "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mExperience Create (1.0ms)[0m  [1m[32mINSERT INTO "experiences" ("name", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Empire State Building"], ["location", "New York, New York"], ["description", "Went sightseeing on the top of the Empire State Building"], ["created_at", "2020-04-13 23:47:58.972963"], ["updated_at", "2020-04-13 23:47:58.972963"]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[36mExperience::HABTM_Users Create (0.3ms)[0m  [1m[32mINSERT INTO "experiences_users" ("user_id", "experience_id") VALUES ($1, $2)[0m  [["user_id", 1], ["experience_id", 4]]
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/experiences_controller.rb:22:in `create'
+Completed 201 Created in 50ms (Views: 0.6ms | ActiveRecord: 15.0ms | Allocations: 8759)
+
+
+Started GET "/experiences/" for ::1 at 2020-04-13 19:48:05 -0400
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 1331)
+
+
+Started GET "/users/1" for ::1 at 2020-04-13 19:48:07 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `set_user'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 759)
+
+
+Started GET "/users/1/experiences" for ::1 at 2020-04-13 19:48:07 -0400
+Processing by ExperiencesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:41:in `set_experience'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:12:in `show'
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "experiences_users" ON "experiences"."id" = "experiences_users"."experience_id" WHERE "experiences_users"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/experiences_controller.rb:13:in `show'
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 1.0ms | Allocations: 2437)
+
+
